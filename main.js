@@ -12,6 +12,8 @@ const superFiltro = document.getElementById('filtro');
 const searchForm = document.querySelector('#search');
 const searchInput = document.querySelector('#search-input');
 const filterSelect = document.querySelector('#filter-select');
+const submitButton = document.getElementById("arrow-button")
+const clearSearchBtn = document.getElementById('cancel-button');
 
 let oldInput;
 
@@ -147,30 +149,36 @@ taskForm.addEventListener("submit", (e) => {
 
 
 
+clearSearchBtn.style.display = 'none';
 //Logica do filtro por pesquisa
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+    submitButton.style.display = 'none'
     const searchTerm = searchInput.value.toLowerCase();
     const tasks = document.querySelectorAll('.todo');
-    
+
     tasks.forEach((task) => {
         const taskTitleElement = task.querySelector('h3');
-        
+
         if (taskTitleElement) {
             const taskTitle = taskTitleElement.innerText.toLowerCase();
-            
+
             if (taskTitle.includes(searchTerm)) {
                 task.style.display = 'flex';
             } else {
                 task.style.display = 'none';
             }
-            
-        } 
-        
-        
+        }
     });
-    
+    submitButton.style.display = searchInput.value ? 'none' : 'inline-block';
+    clearSearchBtn.style.display = searchInput.value ? 'inline-block' : 'none';
+
+
+});
+
+clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = ''; 
+    clearSearchBtn.style.display = 'none';   
 });
 
 //Logica do filtro
