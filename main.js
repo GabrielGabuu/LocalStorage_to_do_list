@@ -144,6 +144,9 @@ taskForm.addEventListener("submit", (e) => {
     }
 });
 
+
+
+//Logica do filtro por pesquisa
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -162,19 +165,20 @@ searchForm.addEventListener('submit', (e) => {
                 task.style.display = 'none';
             }
             
-        }
-        searchInput.value = '';
+        } 
+        
+        
     });
     
 });
 
+//Logica do filtro
 filterSelect.addEventListener('change', () => {
     const filterValue = filterSelect.value;
     const tasks = document.querySelectorAll('.todo');
     
     tasks.forEach((task) => {
         const isDone = task.classList.contains('done');
-        
         if ((filterValue === 'all') ||
         (filterValue === 'done' && isDone) ||
         (filterValue === 'todo' && !isDone)) {
