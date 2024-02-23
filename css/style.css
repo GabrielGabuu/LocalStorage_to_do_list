@@ -24,7 +24,10 @@ body {
     padding-right: 6.5rem;
 }
 
-
+#cancel-button {
+    padding: 5px 9px 5px 9px;
+    margin: 0px 0px 0px 3px;
+}
 
 
 button {
