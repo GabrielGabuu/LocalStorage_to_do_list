@@ -149,11 +149,11 @@ taskForm.addEventListener("submit", (e) => {
 
 
 
-clearSearchBtn.style.display = 'none';
+
 //Logica do filtro por pesquisa
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    submitButton.style.display = 'none'
+
     const searchTerm = searchInput.value.toLowerCase();
     const tasks = document.querySelectorAll('.todo');
 
@@ -170,7 +170,6 @@ searchForm.addEventListener('submit', (e) => {
             }
         }
     });
-    submitButton.style.display = searchInput.value ? 'none' : 'inline-block';
     clearSearchBtn.style.display = searchInput.value ? 'inline-block' : 'none';
 
 
